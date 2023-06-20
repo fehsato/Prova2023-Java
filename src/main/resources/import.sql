@@ -1,0 +1,1 @@
+INSERT INTO TBL_EMPRESAS(NAME, EMAIL, ENDERECO) VALUES ('Amazon', 'amazon@gmail.com', 'Estados Unidos');

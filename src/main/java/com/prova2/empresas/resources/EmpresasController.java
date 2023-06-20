@@ -1,10 +1,12 @@
 package com.prova2.empresas.resources;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,12 @@ public class EmpresasController {
 
     @Autowired
     private EmpresasService empresasService;
+
+    @GetMapping
+    public ResponseEntity<List<Empresas>> getEmpresas(){
+        List<Empresas> empresa = empresasService.getEmpresas();
+        return ResponseEntity.ok().body(empresa);
+    }
 
     @PostMapping
     public ResponseEntity<Empresas> saveEmpresas(@RequestBody Empresas empresa ){
